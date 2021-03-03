@@ -37,12 +37,12 @@ router.post('/login', async (req, res) => {
 
 router.get('/isloggedin', async (req, res) => {
     const token = req.header('Authorization').replace('Bearer ', '');
-    
+
     let resObj = {
         isLoggedIn: false
     }
 
-    if (token !== 'null') {
+    if (token !== 'null' && token !== 'undefined') {
         const user = jwt.verify(token, 'a1b1c1');
 
         if (user) {

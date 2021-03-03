@@ -23,9 +23,9 @@ async function login(username, password) {
         password: password
     }
 
-    const response = await fetch(url, { 
-        method: 'POST', 
-        body: JSON.stringify(obj), 
+    const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(obj),
         headers: { 'Content-Type': 'application/json' } });
     const data = await response.json();
 
@@ -33,20 +33,24 @@ async function login(username, password) {
 }
 
 async function isLoggedIn() {
+    console.log('debug 1');
     const token = getToken();
+    console.log('debug 2');
     const url = 'http://localhost:8000/api/auth/isloggedin';
 
-    const response = await fetch(url, { 
+    const response = await fetch(url, {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token
-        } 
+        }
     });
+    console.log('debug 3');
     const data = await response.json();
 
     if (data.isLoggedIn) {
         location.href = 'http://localhost:8000/loggedin.html';
     }
+    console.log('debug 4');
 }
 
 buttonElem.addEventListener('click', async () => {
