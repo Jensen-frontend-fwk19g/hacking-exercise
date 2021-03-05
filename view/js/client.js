@@ -42,13 +42,11 @@ async function isLoggedIn() {
             'Authorization': 'Bearer ' + token
         }
     });
-    console.log('debug 3');
     const data = await response.json();
 
     if (data.isLoggedIn) {
         location.href = 'http://localhost:8000/loggedin.html';
     }
-    console.log('debug 4');
 }
 
 buttonElem.addEventListener('click', async () => {
