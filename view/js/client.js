@@ -33,9 +33,7 @@ async function login(username, password) {
 }
 
 async function isLoggedIn() {
-    console.log('debug 1');
     const token = getToken();
-    console.log('debug 2');
     const url = 'http://localhost:8000/api/auth/isloggedin';
 
     const response = await fetch(url, {
