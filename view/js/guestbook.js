@@ -5,7 +5,7 @@ function createComment(comment) {
     const commentText = document.createElement('p');
     const commentAuthor = document.createElement('p');
 
-    commentText.innerHTML = 'Kommentar: ' + comment.text;
+    commentText.innerText = 'Kommentar: ' + comment.text;
     commentAuthor.innerHTML = 'Av: ' + comment.author;
 
     commentWrapper.append(commentText)
@@ -34,7 +34,7 @@ function setUserId(id) {
 async function getComments() {
     const url = 'http://localhost:8000/api/guestbook/get';
 
-    const response = await fetch(url, { 
+    const response = await fetch(url, {
         method: 'GET'
     });
     const data = await response.json();
@@ -44,7 +44,7 @@ async function getComments() {
 async function addComment(comment) {
     const url = 'http://localhost:8000/api/guestbook/add';
 
-    const response = await fetch(url, { 
+    const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(comment),
         headers: { 'Content-Type': 'application/json' }
@@ -55,7 +55,7 @@ async function addComment(comment) {
 
 /*<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/128399415&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" 
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
 src="<script>console.log(document.cookie);"
 ></iframe>*/
 
@@ -63,7 +63,7 @@ src="<script>console.log(document.cookie);"
 async function getAccount() {
     const url = 'http://localhost:8000/api/account/get';
 
-    const response = await fetch(url, { 
+    const response = await fetch(url, {
         method: 'GET' ,
         headers: {
             'Authorization': 'Bearer ' + getToken()
